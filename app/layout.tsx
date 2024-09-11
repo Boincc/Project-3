@@ -35,9 +35,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <SignedOut>
         <RedirectToSignIn />
       </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
     </header>
     <main>{children}</main>
     </body>
