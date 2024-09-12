@@ -9,9 +9,18 @@ export function MainNav({
     ...props
 }: React.HTMLAttributes<HTMLElement> ) {
     const pathname = usePathname();
-    const params = useParams();    
+    const params = useParams();   
+    
+    if (!params.storeId) { //
+        return null; // для исправлении ошибки появления 2 Settings
+      } //
     
     const routes = [
+        {
+            href: `/${params.storeId}`,
+            label: 'Overview',
+            active: pathname === `/${params.storeId}`,
+        },
         {
             href: `/${params.storeId}/settings`,
             label: 'Settings',
