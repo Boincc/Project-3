@@ -329,6 +329,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                         <FormControl>
                             <Checkbox 
                             checked={field.value}
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             //@ts-ignore
                             onCheckedChange={field.onChange}
                             />
@@ -352,6 +353,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                         <FormControl>
                             <Checkbox 
                             checked={field.value}
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             //@ts-ignore
                             onCheckedChange={field.onChange}
                             />

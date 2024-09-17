@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ClerkProvider, RedirectToSignIn, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { ClerkProvider, RedirectToSignIn, SignedOut } from '@clerk/nextjs'
 import { ModalProvider } from "@/providers/modal-provider";
 import { ToasterProvider } from "@/providers/toast-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
-
-
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,23 +23,22 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-
   return (
     <ClerkProvider>
-    <html lang="en">
-    <body>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <ToasterProvider/>
-      < ModalProvider/>
-    <header>
-      <SignedOut>
-        <RedirectToSignIn />
-      </SignedOut>
-    </header>
-    <main>{children}</main>
-    </ThemeProvider>
-    </body>
-    </html>
-  </ClerkProvider>
+      <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+        <body>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <ToasterProvider/>
+            <ModalProvider/>
+            <header>
+              <SignedOut>
+                <RedirectToSignIn />
+              </SignedOut>
+            </header>
+            <main>{children}</main>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
